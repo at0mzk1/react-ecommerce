@@ -1,0 +1,28 @@
+.thumbnail {
+    border-width: 2px;
+    padding: 0;
+}
+
+.thumbnail:hover {
+    border-color: #d9230f;
+}
+
+.thumbnail .caption {
+    padding: 0px;
+}
+
+.caption h3 {
+    font-size: 32px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10px;
+    /* background-color: #ff6600; */
+    border-bottom: 2px solid rgb(231, 230, 230);
+    padding: 5px 0;
+    color: #d9230f;
+}
+
+.caption p {
+    padding: 5px 10px;
+    text-justify: justify;
+}
