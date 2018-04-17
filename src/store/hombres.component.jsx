@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid, Thumbnail } from 'react-bootstrap';
+import { Row, Col, Grid, Thumbnail, Carousel, PageHeader } from 'react-bootstrap';
 import './hombres.css';
+
 
 const shortImages = {
     1: "http://bibliotecnologia.com/wp-content/uploads/2017/08/18382676_136466486899257_2562937105852399616_n.jpg",
@@ -14,18 +15,21 @@ const shortImages = {
 }
 
 class Hombres extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
-            characters: []
+            products: [],
+            carousel: []
         };
     }
 
     componentDidMount() {
-        this.CharacterList();
+        this.CarouselImages();
+        this.ProductList();
     }
 
-    CharacterList() {
+    ProductList() {
         let images = [];
         for(var image in shortImages) {
             images.push(
@@ -43,13 +47,37 @@ class Hombres extends Component {
                 </Col>
             )
         }
-                this.setState({ characters: images });
+                this.setState({ products: images });
+    }
+
+    CarouselImages() {
+        let images = [];
+        for (var image in shortImages) {
+            images.push(
+                <Carousel.Item key={image}>
+                    <img alt="242x200" src={shortImages[image]} className="carousel-img" />
+                    <Carousel.Caption>
+                        <h3>Product</h3>
+                        <p>Product description.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            )
+        }
+        this.setState({ carousel: images });
     }
 
     render() {
         return (
             <Grid>
-                <Row>{this.state.characters}</Row>
+                <Row>
+                    <Carousel interval={3000} wrap={false}>
+                    {this.state.carousel}
+                    </Carousel>
+                </Row>
+                <PageHeader>
+                    {this.props.location.pathname}
+                </PageHeader>
+                <Row>{this.state.products}</Row>
             </Grid>
         );
     }

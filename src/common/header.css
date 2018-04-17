@@ -2,3 +2,45 @@
     border-bottom: 3px solid #d9230f;
     padding: 8px 0;
 }
+
+.navbar-header {
+    float: none;
+}
+
+.navBarMenu {
+    position:relative;
+}
+
+.menuItems {
+    float: none;
+    display: inline-block;
+}
+
+@media only screen and (min-width: 768px)  {
+    .logo {
+        margin-left: 6%;
+        margin-top: 0.5%;
+    }
+
+    .loginMenu {
+        float: right;
+        margin-top: 1px;
+    }
+}
+
+@media only screen and (max-width: 768px)  {
+
+    .navbar-toggle {
+        float:  left;
+        margin-left: 1px;
+    }
+
+    .loginMenu {
+        float:  right;
+        margin-right: -5px;
+    }
+
+    .logo {
+        margin-top: 10px;
+    }
+}
